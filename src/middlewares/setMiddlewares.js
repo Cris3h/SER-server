@@ -6,5 +6,5 @@ const { NODE_ENV } = require('../config/envs');
 module.exports = (app) => {
     app.use(json());
     app.use(cors());
-    NODE_ENV == 'development' && app.use(morgan('dev'))
+    // NODE_ENV == 'development' && app.use(morgan('dev'))
 }
