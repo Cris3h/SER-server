@@ -1,14 +1,11 @@
 module.exports = {
-    allClientsController: require("./allClients.controller"),
-    clientPackagesController: require("./clientPackages.controller"),
-    newClientController: require("./newClient.controller"),
-    newPackageController: require("./newPackage.controller"),
+    getByQueryOrAll: require("./getClientsByQueryOrAll"),
+    postPackageAndClientController: require("./postPackageAndClientController"),
 
-    registerUserController: require("./newUser.controller"),
+    registerUserController: require("./postUserController"),
 
-    loginUserController: require('./loginUsers.controller'),
+    loginUserController: require('./loginUsersController'),
 
-    deletePackageController: require('./deletePackage.controller'),
-
-    allPackagesController: require('./allPackages.controller'),
+    deletePackageController: require('./deletePackageController'),
+    updatePackageController: require('./updatePackageNorUserController'),
 };

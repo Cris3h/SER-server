@@ -1,62 +1,24 @@
-const express = require("express");
+const { Router } = require("express");
 const {
-  allClientsController,
-  clientPackagesController,
-  newClientController,
-  newPackageController,
+  getByQueryOrAll,
+  postPackageAndClientController,
   registerUserController,
   loginUserController,
   deletePackageController,
-  allPackagesController
+  updatePackageController,
 } = require("../controllers");
 
-
-const router = express.Router();
+const router = Router();
 
 // ADMIN
 //this route is only for administrators.
 router.post('/signup', registerUserController); 
-
-
-// USERS
 //login for users
 router.post('/login', loginUserController);
 
-
-// CLIENTS
-//get all the user clients
-router.get("/client", allClientsController);
-router.get("/package", allPackagesController);
-
-//get all the packages of one single client
-router.get("/:id/packages", clientPackagesController);
-
-//create a new client. This route is only for verified users
-// router.post("/client/:id", newClientController);
-router.post("/client", newClientController);
-
-//create a new package for one single client.
-router.post("/package/:id", newPackageController);
-
-//delete a package
-router.delete("/package/:id", deletePackageController);
-
-
+router.get("/client", getByQueryOrAll); // busca por query o todos. 
+router.post("/newPackage", postPackageAndClientController); //verifica si existe el mismo cliente.
+router.patch("/package", updatePackageController); // envia dentro de data todos los campos a modificar (BUG: MODIFICA TODOS LOS PAQUETES DEL USUARIO. SI TIENE 5 PAQUETES Y CAMBIA A 1 EL "TO" VA A CAMBIAR EN TODOS. ARREGLAR RAPIDO!)
+router.delete("/package/:id", deletePackageController); // usa el id del paquete
 
 module.exports = router;
-
-
-// // --- TEST FOR USERS ---
-
-// const { errorResponse } = require("../../../utils");
-// const { User } = require("../../../schemas");
-
-// router.get("/user", async (req, res, next)=> {
-//     try {
-//         const user = await User.find();
-//         res.status(200).json(user); 
-//     } catch (error) {
-//         console.log(error);
-//     }
-// })
-// // --- Working fine ---

@@ -2,8 +2,8 @@ const { User } = require("../../../schemas");
 const bcrypt = require("bcrypt");
 const { errorHandler } = require("../../../utils");
 
-const signUpService = async (req, res) => {
-  const { username, password, name, email } = req.body;
+const signUpService = async (body) => {
+  const { username, password, name, email } = body;
   const hashedPassword = await bcrypt.hash(password, 13);
 
   const user = await User.findOne({ email: email });

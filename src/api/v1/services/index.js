@@ -1,17 +1,10 @@
 module.exports = {
-    getClients: require("./allClients.service"),
-    getClientByName: require("./findClientByName.js"),
+    getClients: require("./allClientsService.js"),
+    getClientByName: require("./findClientByNameService.js"),
 
-    getPackages: require("./clientPackages.service"),
-    postPackage: require("./newPackage.service"),
-
-    postClient: require("./newClient.service.js"),
-
-    signUp: require("./signUp.service.js"),
-
-    login: require('./login.service.js'),
-
-    deletePackage: require("./deletePackage.service"),
-
-    getAllPackagesForLength: require("./getPackages.js"),
+    postNewPackageAndClient: require("./postPackageAndClientService.js"),
+    signUp: require("./signUpService.js"),
+    login: require('./loginService.js'),
+    deletePackage: require("./deletePackageService.js"),
+    updatePackageNorUserService: require("./updatePackageNorUserService.js"),
 };

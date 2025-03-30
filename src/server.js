@@ -1,10 +1,10 @@
 const express = require("express");
 const setMiddlewares = require("./middlewares/setMiddlewares");
 const { errorResponse } = require("./utils");
-
-const app = express();
 const cookieParser = require("cookie-parser");
 
+
+const app = express();
 
 setMiddlewares(app);
 

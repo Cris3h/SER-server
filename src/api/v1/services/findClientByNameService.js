@@ -9,10 +9,10 @@ const findClientsByName = async (name) => {
             //CaSe INsensITive
             $options: "i",
           },
-        });
+        }).populate('packages');
         return client;
     }catch(error){
-
+      return error.message
     }
 };
 
