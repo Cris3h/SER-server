@@ -1,5 +1,5 @@
 const {json} = require('express');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const cors = require('cors')
 const { NODE_ENV } = require('../config/envs');
 
